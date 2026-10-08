@@ -9,6 +9,19 @@ Project source code should live under `./src/`.
 A typical repository should use this shape:
 
 ```text
+.macrostates/
+  specs/
+    main.md
+    composition.yaml
+    composition.lock.yaml
+    000_meta/
+    001_process/
+  implementation/
+    main.md
+    release.yaml
+    decisions/
+    workflows/
+      history/
 src/
   <package_name>/
 tests/

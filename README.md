@@ -43,12 +43,22 @@ scope for this package.
 
 ## Process compatibility
 
-This package requires Process 1.2.0 or later for its workflow and subproject
-concepts. It also supports Process 2.0.0: the selected Process package owns
-composition and implementation version declarations and release policy. This
-package does not impose a competing version policy. Its dependency is a minimum
-rather than a major-version restriction because it uses those general concepts
-and delegates lifecycle policy to the selected Process version.
+This release requires Process 3.0.0 or a later compatible 3.x release. The
+selected Process package owns composition/implementation versions, declarations
+and lifecycle policy; this package imposes no competing version policy.
+The dependency now selects the modern artifact layout and limits compatibility
+to the verified Process major. Earlier Python-project releases retain their
+original dependency requirements.
+
+## Macrostates artifacts
+
+Follow the selected Meta package's project layout: numbered specification
+packages and the project entrypoint are tracked under `.macrostates/specs/`.
+Implementation documentation, decisions, workflows and release declarations,
+when required by project rules, live under `.macrostates/implementation/`.
+Application source, tests, build configuration and runtime configuration retain
+their language/tool locations outside `.macrostates/`. This package does not
+make the Macrostates CLI mandatory or change the scope of a subproject.
 
 ## Reading order
 

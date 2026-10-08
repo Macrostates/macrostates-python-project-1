@@ -143,12 +143,12 @@ project-specific specs packages.
 Vendored libraries are a Python-specific form of subproject as defined by the
 process specs package.
 
-Vendored libraries may have their own `./specs/` directory, their own lifecycle
-rules, a different process, or no local specifications at all. When local
-vendored-library specifications or lifecycle rules exist, they have authority
-over the library's internal behavior, structure, and lifecycle. The consuming
-project's specifications still govern how the consuming project integrates,
-records, and maintains the vendored dependency.
+Vendored libraries may have their own `./.macrostates/specs/` directory, their
+own lifecycle rules, a different process, or no local specifications at all.
+When local vendored-library specifications or lifecycle rules exist, they have
+authority over the library's internal behavior, structure, and lifecycle. The
+consuming project's specifications still govern how the consuming project
+integrates, records, and maintains the vendored dependency.
 
 The Implementer should not read a vendored library's internal specifications
 merely because the consuming project imports or uses that library. For ordinary
@@ -161,10 +161,10 @@ lifecycle artifacts when changing files inside that vendored library, when
 diagnosing vendored-library lifecycle or subtree maintenance problems, or when a
 requested consuming-project change depends on those internal rules.
 
-For example, if `./vendor/logging-library/specs/` exists and the Implementer is
-asked to change `./vendor/logging-library/src/`, the Implementer should inspect
-and follow the vendored library specifications before applying the consuming
-project's general Python conventions to that library.
+For example, if `./vendor/logging-library/.macrostates/specs/` exists and the
+Implementer is asked to change `./vendor/logging-library/src/`, the Implementer
+should inspect and follow the vendored library specifications before applying
+the consuming project's general Python conventions to that library.
 
 ## Standalone subproject boundary
 
@@ -182,15 +182,18 @@ used as hidden inputs for the vendored library's own specification composition.
 
 When a vendored library reuses specification packages that are also used by the
 consuming project, include those needed packages inside the vendored library's
-own `./specs/` directory. They may be maintained as Git subtrees from the same
-upstream specification repositories as the consuming project, but the subtree
-relationship is separate for each repository and prefix.
+own `./.macrostates/specs/` directory. Obtain them from the canonical
+specification release sources selected by that library's composition, normally
+tracked GitHub snapshots with its own integrity lock. Explicit Git-subtree
+selections retain their separate repository/prefix relationships. This does not
+change Git subtree maintenance of the vendored library's executable source.
 
 For example, if both a consuming project and `./vendor/logging-library/` use the
 Macrostates `meta` package, both repositories may contain a local
-`specs/000_meta/` subtree. The vendored library's `specs/main.md` and
-`specs/composition.yaml` should point to the copy inside the vendored library,
-not to the consuming project's `./specs/000_meta/`.
+`.macrostates/specs/000_meta/` package copy. The vendored library's
+`.macrostates/specs/main.md` and `.macrostates/specs/composition.yaml` should
+point to the copy inside the vendored library, not to the consuming project's
+`./.macrostates/specs/000_meta/`.
 
 Do not add the consuming project's project-shaped specification package to a
 vendored library merely because the consuming project uses it. A reusable
