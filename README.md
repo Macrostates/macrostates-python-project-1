@@ -41,6 +41,15 @@ specifications or lifecycle.
 Domain-specific behavior, workflow rules, and documentation ownership are out of
 scope for this package.
 
+## Process compatibility
+
+This package requires Process 1.2.0 or later for its workflow and subproject
+concepts. It also supports Process 2.0.0: the selected Process package owns
+composition and implementation version declarations and release policy. This
+package does not impose a competing version policy. Its dependency is a minimum
+rather than a major-version restriction because it uses those general concepts
+and delegates lifecycle policy to the selected Process version.
+
 ## Reading order
 
 1. [Project layout](001_project-layout.md)
