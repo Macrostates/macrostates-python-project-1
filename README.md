@@ -66,3 +66,10 @@ Conditional annexes:
 
 - [Docker](annex_docker.md): read when Docker support is being specified,
   implemented, reviewed, or maintained for a Python project.
+
+## License
+
+This specification package, including its documentation, metadata, and bundled
+resources, is licensed under the [MIT License](LICENSE).
+
+Copyright (c) 2026 Lucas Lopez.
