@@ -103,12 +103,12 @@ Use this format:
 ```toml
 [[subtree]]
 path = "vendor/logging-library"
-repository = "https://github.com/example/logging-library.git"
+repository = "https://git.example.org/example/logging-library.git"
 branch = "main"
 
 [[subtree]]
 path = "vendor/protocol-library"
-repository = "https://github.com/example/protocol-library.git"
+repository = "https://git.example.org/example/protocol-library.git"
 branch = "main"
 ```
 
@@ -184,7 +184,7 @@ When a vendored library reuses specification packages that are also used by the
 consuming project, include those needed packages inside the vendored library's
 own `./.macrostates/specs/` directory. Obtain them from the canonical
 specification release sources selected by that library's composition, normally
-tracked GitHub snapshots with its own integrity lock. Explicit Git-subtree
+tracked immutable release snapshots with its own integrity lock. Explicit Git-subtree
 selections retain their separate repository/prefix relationships. This does not
 change Git subtree maintenance of the vendored library's executable source.
 

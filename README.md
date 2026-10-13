@@ -37,18 +37,24 @@ specifications or lifecycle.
 - Unit, integration, and API contract testing conventions.
 - pre-commit-based Git hook conventions.
 - uv-based packaging conventions.
+- Distribution version defaults, explicit independent policies, and release provenance.
 
-Domain-specific behavior, workflow rules, and documentation ownership are out of
-scope for this package.
+Domain-specific behavior, repository integration policy, and general workflow
+ownership are out of scope for this package. Distribution-specific build
+integration follows the selected Process and application policies.
 
 ## Process compatibility
 
-This release requires Process 3.0.0 or a later compatible 3.x release. The
-selected Process package owns composition/implementation versions, declarations
-and lifecycle policy; this package imposes no competing version policy.
-The dependency now selects the modern artifact layout and limits compatibility
-to the verified Process major. Earlier Python-project releases retain their
-original dependency requirements.
+This release requires Process 5.0.0 or later and uses its separate `specs-*` and
+`imp-*` baselines, change records, and reviewed release-preparation policy.
+The dependency declaration records all required minima. An `at_least` constraint permits
+selection across majors, but does not prove semantic compatibility with future
+requirements. Earlier Python-project releases retain their original rules.
+
+Python distributions default to the numeric part of their selected finalized
+implementation baseline unless another effective specification declares an
+independent application policy. Process owns repository baseline versions;
+application specifications own distribution versions and publication strategy.
 
 ## Macrostates artifacts
 
@@ -71,6 +77,7 @@ make the Macrostates CLI mandatory or change the scope of a subproject.
 7. [Testing](007_testing.md)
 8. [Hooks](008_hooks.md)
 9. [Packaging](009_packaging.md)
+10. [Distribution Versioning And Releases](010_versioning.md)
 
 Conditional annexes:
 

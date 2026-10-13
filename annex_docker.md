@@ -59,6 +59,14 @@ or development-only dependency groups.
 The runtime image should include only the files and dependencies needed to run
 the supported production behavior.
 
+Image tags and labels identify the distribution or service being released.
+Use its independent application version when an effective policy declares one;
+otherwise use the numeric implementation-derived default. Record exact
+Macrostates specification/implementation baselines and source provenance under
+the selected Docker and Process rules. Do not overwrite a wheel's distribution
+version with a repository baseline or release unchanged workspace members merely
+because the repository has a newer implementation version.
+
 ## Workspace members
 
 When the Python project uses `uv` workspaces, Docker builds should include the
