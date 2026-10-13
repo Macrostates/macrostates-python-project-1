@@ -38,6 +38,14 @@ including:
 - Pyright type checks when the project size and speed make that practical.
 - Lightweight pytest selections when they are fast and deterministic.
 
+The project may provide a separate integration-preparation hook or command for
+Process's change-record and closed-workflow checks. Do not require all workflows
+to be closed on every development commit: an active implementation workflow is
+expected while work is in progress. The complete readiness gate runs when
+preparing the integration proposal and again before integration. Macrostates CLI
+checks are recommended when available; equivalent manual verification remains
+supported under Process.
+
 Long-running integration tests, provider-backed tests, load tests, or other
 expensive checks should not be mandatory local pre-commit hooks unless a
 project-specific specification requires them.

@@ -18,6 +18,11 @@ The exact metadata fields depend on whether the project is an application,
 library, service, tool, or mixed repository. Project-specific specifications may
 define stricter metadata requirements.
 
+Follow [Distribution Versioning And Releases](010_versioning.md) for the
+implementation-derived default, explicit independent policies, development
+identities, authoritative metadata, and release provenance. A repository baseline
+does not automatically assign or publish every distribution's application version.
+
 ## Build tool
 
 Use `uv` as the normal interface for building package artifacts.
